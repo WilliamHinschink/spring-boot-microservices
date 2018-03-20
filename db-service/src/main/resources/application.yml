@@ -1,11 +1,3 @@
-spring:
-  application:
-    name: stock-service
-
-server:
-  port: 8301
-
-
 eureka:
   client:
     registerWithEureka: true

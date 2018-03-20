@@ -8,7 +8,6 @@ import yahoofinance.YahooFinance;
 /**
  * Created by william on 16/03/2018.
  */
-@NoArgsConstructor
 @AllArgsConstructor
 public class StockService {
 

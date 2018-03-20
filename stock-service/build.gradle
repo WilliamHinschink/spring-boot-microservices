@@ -4,6 +4,7 @@ buildscript {
 	}
 	repositories {
 		mavenCentral()
+		mavenLocal()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -23,6 +24,7 @@ targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+	mavenLocal()
 	maven { url "https://repo.spring.io/milestone" }
 }
 
@@ -32,10 +34,10 @@ ext {
 }
 
 dependencies {
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-eureka', version: '1.4.3.RELEASE'
 	compile('org.springframework.boot:spring-boot-starter-jersey')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-web-services')
-	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
 	compile('org.springframework.boot:spring-boot-starter-jetty')
 	compile('com.yahoofinance-api:YahooFinanceAPI:3.6.1')
 

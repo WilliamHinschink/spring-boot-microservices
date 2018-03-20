@@ -1,5 +1,6 @@
 package com.sibentek.stockservice.contract;
 
+import com.sibentek.stockservice.propertiesloader.PropertiesLoader;
 import com.sibentek.stockservice.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -28,10 +29,13 @@ public class StockContract {
     @Autowired
     private StockService stockService;
 
+    @Autowired
+    private PropertiesLoader propertiesLoader;
+
     @GetMapping("/{username}")
     public List<Stock> getStock(@PathVariable("username") String username) {
-
-        ResponseEntity<List<String>> quoteResponse = restTemplate.exchange("http://localhost:9033/rest/db/" + username,
+        String s = propertiesLoader.getRestDb();
+        ResponseEntity<List<String>> quoteResponse = restTemplate.exchange(propertiesLoader.getRestDb()+ username,
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<String>>(){});
 
         return quoteResponse
